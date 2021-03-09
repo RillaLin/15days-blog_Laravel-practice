@@ -12,6 +12,7 @@
         @include('layouts.header',['overlay'=>(isset($overlay))?$overlay:null])   <!--include layout的php.blade檔，做判斷是否有收到index傳來的overlay變數-->
         
         @yield('hero') <!--hero section 網頁中的大圖-->
+        @yield('page-title')
         
         <!--body content start 這裡是每頁會一直變換的內容-->
         <section class="body-content">
