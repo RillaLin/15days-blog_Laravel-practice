@@ -1,5 +1,5 @@
 <!--延展app檔-->
-@extends('layouts.app')
+@extends('layouts.app',['overlay'=>true])   <!--傳送overlay變數，因為只有index需要overlay-->
 
 @section('hero')
     <!--hero section 網頁中的大圖-->

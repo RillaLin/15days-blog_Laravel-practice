@@ -9,7 +9,7 @@
     @include('layouts.preloader')   <!--include layout的php.blade檔-->
     
     <div class="wrapper">
-        @include('layouts.header')   <!--include layout的php.blade檔-->
+        @include('layouts.header',['overlay'=>(isset($overlay))?$overlay:null])   <!--include layout的php.blade檔，做判斷是否有收到index傳來的overlay變數-->
         
         @yield('hero') <!--hero section 網頁中的大圖-->
         
