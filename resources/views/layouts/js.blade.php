@@ -27,4 +27,6 @@
     <script src="assets/vendor/visible/visible.js"></script>
     <script src="assets/vendor/wow/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <!--上面放模板原本的js-->
+    <script src="/js/app.js" charset="utf-8"></script>  <!--加入新的js-->
     <!-- endinject -->

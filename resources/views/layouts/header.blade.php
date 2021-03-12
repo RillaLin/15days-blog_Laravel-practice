@@ -9,7 +9,7 @@
                     <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
 
                         <!--logo start-->
-                        <a href="index.html" class="logo-brand">
+                        <a href="/" class="logo-brand">
                             @isset($overlay)  <!--判斷是否傳overlay變數，改變logo顏色-->
                                 <img class="retina" src="assets/img/logo-dark.png" alt="Massive">
                             @else
