@@ -11,9 +11,9 @@
                         <!--logo start-->
                         <a href="/" class="logo-brand">
                             @isset($overlay)  <!--判斷是否傳overlay變數，改變logo顏色-->
-                                <img class="retina" src="assets/img/logo-dark.png" alt="Massive">
+                                <img class="retina" src="/assets/img/logo-dark.png" alt="Massive">
                             @else
-                                <img class="retina" src="assets/img/logo.png" alt="Massive">
+                                <img class="retina" src="/assets/img/logo.png" alt="Massive">
                             @endisset
                             
                         </a>
@@ -27,6 +27,9 @@
                             </li>
                             <li class="@if(request()->is('about')) active @endif"> <!--直接用request變數取得路徑網址，若目前網址為about則顯示active-->
                                 <a href="/about">About</a>
+                            </li>
+                            <li class="@if(request()->is('posts')) active @endif"> <!--直接用request變數取得路徑網址，若目前網址為about則顯示active-->
+                                <a href="/posts">Blog</a>
                             </li>
                             <li class="@if(request()->is('contact')) active @endif"> <!--直接用request變數取得路徑網址，若目前網址為contact則顯示active-->
                                 <a href="/contact">Contact</a>
