@@ -29,170 +29,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <!--classic image post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                24
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <div class="full-width">
-                                    <img src="assets/img/post/p12.jpg" alt="" />
+                        @foreach($posts as $key => $post)  <!--由posts陣列變數判斷有幾筆post-->
+                            <!--classic image post-->
+                            <div class="blog-classic">
+                                <div class="date">
+                                    24
+                                    <span>MAR 2015</span>
                                 </div>
-                                <h4 class="text-uppercase"><a href="/posts/9487">standard blog post with photo</a></h4>
-                                <ul class="post-meta">
-                                    <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
-                                    </li>
-                                    <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
-                                    </li>
-                                    <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
-                                    </li>
-                                </ul>
-                                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <a href="/posts/9487" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
-                            </div>
-                        </div>
-                        <!--classic image post-->
-
-                        <!--classic gallery post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                20
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <div class="full-width ">
-                                    <div class="post-slider post-img text-center relative">
-                                        <ul class="slides">
-                                            <li>
-                                                <a href="javascript:;" title="Freshness Photo">
-                                                    <img src="assets/img/post/p3.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;" title="Awesome Lightbox">
-                                                    <img src="assets/img/post/p2.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;" title="Massive UI Components">
-                                                    <img src="assets/img/post/p1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                        </ul>
+                                <div class="blog-post">
+                                    <div class="full-width">
+                                        <img src="assets/img/post/p12.jpg" alt="" />
                                     </div>
+                                    <h4 class="text-uppercase"><a href="/posts/9487">standard blog post with photo</a></h4>
+                                    <ul class="post-meta">
+                                        <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
+                                        </li>
+                                        <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
+                                        </li>
+                                        <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
+                                        </li>
+                                    </ul>
+                                    <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <a href="/posts/9487" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                                 </div>
-                                <h4 class="text-uppercase"><a href="blog-single.html">Gallery Image Post</a></h4>
-                                <ul class="post-meta">
-                                    <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
-                                    </li>
-                                    <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
-                                    </li>
-                                    <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
-                                    </li>
-                                </ul>
-                                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <a href="blog-single.html" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                             </div>
-                        </div>
-                        <!--classic gallery post-->
-
-                        <!--classic text post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                17
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <h4 class="text-uppercase"><a href="blog-single.html">standard Text post</a></h4>
-                                <ul class="post-meta">
-                                    <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
-                                    </li>
-                                    <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
-                                    </li>
-                                    <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
-                                    </li>
-                                </ul>
-                                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <a href="blog-single.html" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
-                            </div>
-                        </div>
-                        <!--classic text post-->
-
-                        <!--classic quote post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                17
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <blockquote class="quote-post">
-                                    <p>
-                                        Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error
-                                    </p>
-                                </blockquote>
-                                <span>- Princes Meridina</span>
-                            </div>
-                        </div>
-                        <!--classic quote post-->
-
-                        <!--classic audio post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                15
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <p class="audio-fit m-bot-50">
-                                    <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/115637399&amp;color=ff5500&amp;auto_play=false&amp;show_artwork=true"></iframe>
-                                </p>
-
-                                <h4 class="text-uppercase"><a href="blog-single.html">Audio post</a></h4>
-                                <ul class="post-meta">
-                                    <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
-                                    </li>
-                                    <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
-                                    </li>
-                                    <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
-                                    </li>
-                                </ul>
-                                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <a href="blog-single.html" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
-                            </div>
-                        </div>
-                        <!--classic audio post-->
-
-                        <!--classic video post-->
-                        <div class="blog-classic">
-                            <div class="date">
-                                10
-                                <span>MAR 2015</span>
-                            </div>
-                            <div class="blog-post">
-                                <p class="video-fit m-bot-50">
-                                    <iframe width="560" height="315" src="//www.youtube.com/embed/lq_BVyou38s" allowfullscreen></iframe>
-                                </p>
-                                <h4 class="text-uppercase"><a href="blog-single.html">Video post</a></h4>
-                                <ul class="post-meta">
-                                    <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
-                                    </li>
-                                    <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
-                                    </li>
-                                    <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
-                                    </li>
-                                </ul>
-                                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <a href="blog-single.html" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
-                            </div>
-
-                        </div>
-                        <!--classic video post-->
-
+                            <!--classic image post-->
+                        @endforeach
+                        
 
                         <!--pagination-->
                         <div class="text-center">

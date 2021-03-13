@@ -25,7 +25,8 @@ Route::get('/contact', function () {  //contact
 });
 
 Route::get('/posts', function () {  //顯示所有文章的列表
-    return view('posts.list');  
+    $posts = [1,2,3,4,5];
+    return view('posts.list',['posts'=>$posts]);  //傳入posts變數到list 
 });
 
 Route::get('/posts/{id}', function ($id) {  //顯示單篇文章
