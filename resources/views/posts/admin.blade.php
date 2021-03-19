@@ -32,7 +32,7 @@
                 <!--使用bootstrate 3.3.7版本bootstrate的group list-->
                 <div class="list-group">
                     @foreach($posts as $key=> $post) <!--把每一個post拿出來印-->
-                        <a href="#" class="list-group-item">
+                        <a href="/posts/show/{{ $post->id }}" class="list-group-item">
                             {{$post->title}}
                         </a>
                     @endforeach
