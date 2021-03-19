@@ -15,12 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
+            //$table->unsignedInteger('user_id');
             $table->string('title');
             $table->text('content');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //刪使用者時順便把他的文章都刪除
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //刪使用者時順便把他的文章都刪除
         });
     }
 
