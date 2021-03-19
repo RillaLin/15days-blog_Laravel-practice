@@ -33,4 +33,9 @@ class PostController extends Controller
         $post->save();         //存到資料庫
         return redirect('/posts');     //用get的路徑回到index首頁
     }
+
+    public function show(Post $post)
+    {
+        return view('posts.showByAdmin',['post'=>$post]);  //傳入post model 變數
+    }
 }

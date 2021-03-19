@@ -30,6 +30,7 @@ Route::get('/contact', function () {  //contact
 Route::get('/posts/admin','PostController@admin');  //管理者頁面
 
 Route::get('/posts/create','PostController@create');  //建立文章的表單，表單送出後連到c(store)，移到前面才不會跑到show函式去執行，因為show的路徑的架構可接受create，但create不能接受show
+Route::get('/posts/show/{post}','PostController@show'); //admin的呈現文章，post傳入文章id
 
 Route::post('/posts','PostController@store'); //c->儲存新建立的文章到資料庫
 Route::get('/posts/{post}','PostController@show'); //post透過controller的轉換變成post model，r->顯示文章
