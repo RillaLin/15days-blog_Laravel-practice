@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;  //使用post model
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -30,6 +31,7 @@ class PostController extends Controller
     {
         $post = new Post;   //建立一個新的post model，因為還沒有post
         $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
+        $post->user_id=Auth::id(); //取得登入的使用者id
         $post->save();         //存到資料庫
         return redirect('/posts/admin');     //用get的路徑回到index首頁
     }
