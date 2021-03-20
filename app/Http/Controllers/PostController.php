@@ -50,4 +50,10 @@ class PostController extends Controller
         $post->save();         //更新資料庫
         return redirect('/posts/admin');     //用get的路徑回到index首頁
     }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect('/posts/admin');
+    }
 }

@@ -25,6 +25,7 @@
 
     @include('layouts.js')   <!--include layout的php.blade檔-->
     
+    @yield('script')
 </body>
 
 </html>

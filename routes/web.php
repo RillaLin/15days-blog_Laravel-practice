@@ -35,7 +35,7 @@ Route::get('/posts/show/{post}','PostController@show'); //admin的呈現文章�
 Route::post('/posts','PostController@store'); //c->儲存新建立的文章到資料庫
 Route::get('/posts/{post}','PostController@show'); //post透過controller的轉換變成post model，r->顯示文章
 Route::put('/posts/{post}','PostController@update'); //u->更新文章
-Route::delete('/posts/{post}','PostController@delete'); //d->刪除文章
+Route::delete('/posts/{post}','PostController@destroy'); //d->刪除文章
 
 
 Route::get('/posts/{post}/edit','PostController@edit'); //修改的表單，表單送出後連到u(update)
