@@ -30,15 +30,20 @@
                 </div>
                 
                 <!--使用bootstrate 3.3.7版本bootstrate的group list-->
-                <div class="list-group">
+                <ul class="list-group">
                     @foreach($posts as $key=> $post) <!--把每一個post拿出來印-->
-                        <a href="/posts/show/{{ $post->id }}" class="list-group-item">
+                        <li href="/posts/show/{{ $post->id }}" class="list-group-item clearfix"> <!--改為ul，a裡面放a會出錯-->
                             {{$post->title}}
-                        </a>
+                            <div class="pull-right">  <!--浮右-->
+                                <a href="/posts/show/{{ $post->id }}" class="btn btn-default">View</a>
+                                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </li>
                     @endforeach
                     
                     
-                </div>
+                </ul>
                 
             </div>
         </div>
