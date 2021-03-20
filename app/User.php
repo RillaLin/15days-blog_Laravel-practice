@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function posts(Type $var = null)  //一個user有多篇posts
     {
-        return $this->hasMany('App/Post');   //一個user擁有多篇posts
+        return $this->hasMany('App\Post');   //一個user擁有多篇posts
     }
 }
