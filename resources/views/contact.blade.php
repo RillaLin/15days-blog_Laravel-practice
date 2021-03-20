@@ -1,5 +1,5 @@
 <!--延展app檔-->
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('page-title')
     <section class="page-title background-title dark banner-contact">
