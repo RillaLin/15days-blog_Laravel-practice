@@ -19380,6 +19380,15 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+document.deletePost = function (id) {
+  var result = confirm('Do you want to delete the post?');
+
+  if (result) {
+    var actionUrl = '/posts/' + id;
+    $('#delete-form').attr('action', actionUrl).submit(); //用http方式做刪除
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
