@@ -28,14 +28,26 @@ class PostController extends Controller
 
     public function store(Request $request)  //request接收create表單送出的資訊
     {
-        $post = new Post;   //建立一個新的post model
+        $post = new Post;   //建立一個新的post model，因為還沒有post
         $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
         $post->save();         //存到資料庫
-        return redirect('/posts');     //用get的路徑回到index首頁
+        return redirect('/posts/admin');     //用get的路徑回到index首頁
     }
 
     public function show(Post $post)
     {
         return view('posts.showByAdmin',['post'=>$post]);  //傳入post model 變數
+    }
+
+    public function edit(Post $post)  //用post承接傳過來的post id
+    {
+        return view('posts/edit',['post'=>$post]);  //傳post model的變數過去
+    }
+
+    public function update(Request $request,Post $post)  //用post承接form action傳過來的post id，並找到那篇post，再用request接form傳過來的request，laravel潛規則必須先寫request
+    {
+        $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
+        $post->save();         //更新資料庫
+        return redirect('/posts/admin');     //用get的路徑回到index首頁
     }
 }
