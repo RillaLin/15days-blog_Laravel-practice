@@ -52,3 +52,7 @@ Route::get('/posts','PostController@index');  //把文章首頁設為文章列�
 // Route::get('/posts/{id}', function ($id) {  //顯示單篇文章
 //     return view('posts.show');
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
