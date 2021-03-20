@@ -33,7 +33,11 @@
                 <ul class="list-group">
                     @foreach($posts as $key=> $post) <!--把每一個post拿出來印-->
                         <li href="/posts/show/{{ $post->id }}" class="list-group-item clearfix"> <!--改為ul，a裡面放a會出錯-->
-                            {{$post->title}}
+                            <div class="pull-left">
+                                <div class="title">{{$post->title}}</div>
+                                <small class="author">{{$post->user->name}}</small> <!--透過關聯性找到user model，並找到名字-->
+                            </div>
+                            
                             <div class="pull-right">  <!--浮右-->
                                 <a href="/posts/show/{{ $post->id }}" class="btn btn-default">View</a>
                                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
