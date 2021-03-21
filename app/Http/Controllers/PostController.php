@@ -25,7 +25,8 @@ class PostController extends Controller
 
     public function create()  //到建立文章的表單
     {
-        return view('posts.create');
+        $post = new Post;   //先建立一個新的post model，為了把create跟edit的form做合併到_form.blade.php
+        return view('posts.create',['post'=>$post]);
     }
 
     public function store(StoreBlogPost $request)  //request接收create表單送出的資訊

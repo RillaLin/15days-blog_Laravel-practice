@@ -26,30 +26,7 @@
 <div class="page-content">    <!--再放入原本模板的class中讓畫面間隔更好看-->
     <div class="container">   <!--.container+enter跑出container架構，使畫面置中-->
 
-        <!--若表單驗證出現問題，傳回錯誤訊息的位置-->
-        @if($errors->any())    <!--用any確認是否有錯誤訊息-->
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $key=>$error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
-        <form method="post" action="/posts">  <!--使用post是因為真的要去資料庫建立一筆資料，action到store的路徑-->
-        @csrf <!--連到post、put、delete這些比較危險的method時要做csrf token的驗證-->
-            <div class="form-group">
-                <label for="exampleInputEmail1">Title</label>
-                <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> <!--name之後會傳到後台做判斷-->
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Content</label>
-                <textarea class="form-control" name="content" id="" cols="30" rows="10"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-default" onclick="window.history.back()">Cancel</button>  <!--用onclick塞javascript回到上一頁-->
-        </form>
+        @include('posts/_form')  <!--create跟edit的form做合併-->
     </div>
 </div>
 
