@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 
@@ -14,7 +15,14 @@ class StoreBlogPost extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $post=request()->post;
+        if(!isset($post))   //如果是creaate流程進來的直接回傳true，不用做驗證
+            return true;
+
+        if($post->user_id==Auth::id())  //判斷文章id是否為使用者id
+            return true;
+        else
+            return false;
     }
 
     /**
