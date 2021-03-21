@@ -51,7 +51,7 @@
                                     </ul>
                                     <!--laravel 6點多的版本把str_limit改成Str::limit-->
                                     <p>{{Str::limit($post->content,250) }}</p>  <!--限制內容為250個字，超過250個字顯示...-->
-                                    <a href="/posts/9487" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
+                                    <a href="/posts/{{$post->id}}" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                                 </div>
                             </div>
                             <!--classic image post-->
