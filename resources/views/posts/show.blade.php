@@ -33,9 +33,9 @@
                             <div class="full-width">
                                 <img src="/assets/img/post/p12.jpg" alt="" />
                             </div>
-                            <h4 class="text-uppercase"><a href="blog-single.html">standard blog post with photo</a></h4>
+                            <h4 class="text-uppercase"><a href="blog-single.html">{{$post->title}}</a></h4>
                             <ul class="post-meta">
-                                <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
+                                <li><i class="fa fa-user"></i>posted by <a href="#">{{$post->user->name}}</a>
                                 </li>
                                 <li><i class="fa fa-folder-open"></i>  <a href="#">lifestyle</a>, <a href="#">travel</a>, <a href="#">fashion</a>
                                 </li>
@@ -43,11 +43,7 @@
                                 </li>
                             </ul>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipisicing elit</a>. Ab adipisci architecto consequatur debitis eos eum hic illum ipsam itaque laborum magni minima molestias nostrum numquam odit officia pariatur
-                                perspiciatis placeat porro quae rem, sequi sit soluta temporibus ullam voluptas voluptates. Aliquid amet architecto culpa cumque eius enim esse eum eveniet ex, fugiat illo ipsum laudantium, minima nemo porro sequi
-                                tempora veritatis vero voluptate, voluptatem. Culpa ducimus est eveniet, iste iusto officiis quas repudiandae rerum sit tenetur totam voluptas? Accusamus accusantium alias aliquam aliquid animi commodi dignissimos
-                                dolore doloremque dolorum exercitationem fugiat illum, iste laboriosam maiores molestiae nam odio officia officiis omnis optio placeat quaerat quia quibusdam quis quo ratione sapiente sed sequi sit tenetur unde
-                                ut veniam voluptas! Dicta, voluptatum!</p>
+                            <p>{{$post->content}}</p>
 
                             <div class="blog-post">
                                 <blockquote class="quote-post">
