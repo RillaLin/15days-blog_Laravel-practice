@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('page-title')
     <!--page title start-->
@@ -7,11 +7,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="text-uppercase">Blog Admin Panel</h4>
+                    <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li><a href="/">Home</a>
-                        </li>
-                        <li class="active">Blog Admin Panel</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog Admin </li>
                     </ol>
+</nav>
                 </div>
             </div>
         </div>
@@ -32,14 +33,14 @@
                 <!--使用bootstrate 3.3.7版本bootstrate的group list-->
                 <ul class="list-group">
                     @foreach($posts as $key=> $post) <!--把每一個post拿出來印-->
-                        <li href="/posts/show/{{ $post->id }}" class="list-group-item clearfix"> <!--改為ul，a裡面放a會出錯-->
-                            <div class="pull-left">
+                        <li href="/posts/show/{{ $post->id }}" class="list-group-item"> <!--改為ul，a裡面放a會出錯-->
+                            <div class="float-left">
                                 <div class="title">{{$post->title}}</div>
                                 <small class="author">{{$post->user->name}}</small> <!--透過關聯性找到user model，並找到名字-->
                             </div>
                             
-                            <div class="pull-right">  <!--浮右-->
-                                <a href="/posts/show/{{ $post->id }}" class="btn btn-default">View</a>
+                            <div class="float-right">  <!--浮右-->
+                                <a href="/posts/show/{{ $post->id }}" class="btn btn-secondary">View</a>
                                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
                                 <button class="btn btn-danger" onclick="deletePost({{$post->id}})">Delete</button> <!--把後端id塞到前端-->
                             </div>

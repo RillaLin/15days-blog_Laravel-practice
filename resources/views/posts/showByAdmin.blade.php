@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('page-title')
     <!--page title start-->
@@ -8,11 +8,11 @@
                 <div class="col-md-12">
                     <h4 class="text-uppercase">Blog Admin Panel</h4>
                     <ol class="breadcrumb">
-                        <li><a href="/">Home</a>
+                        <li class="breadcrumb-item"><a href="/">Home</a>
                         </li>
-                        <li class="Blog Admin Panel"><a href="/posts/admin">Blog</a>
+                        <li class="breadcrumb-item"><a href="/posts/admin">Blog</a>
                         </li>
-                        <li class="active">Blog Single</li>
+                        <li class="breadcrumb-item active">Blog Single</li>
                     </ol>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="container">
             <h1>{{ $post -> title }}</h1>
             <small class="author">{{$post->user->name}}</small> <!--透過關聯性找到user model，並找到名字-->
-            <div class="toolbox">
+            <div class="toolbox text-left mt-3">
                 <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
                 <button class="btn btn-danger" onclick="deletePost({{$post->id}})">Delete</button> 
             </div>

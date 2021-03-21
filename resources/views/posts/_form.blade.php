@@ -29,6 +29,7 @@
             <div class="form-group">
                 <label for="exampleInputPassword1">Content</label>
                 <textarea class="form-control" name="content" id="" cols="80" rows="8">{{$post->content}}</textarea>  <!--改成edit的-->
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-default" onclick="window.history.back()">Cancel</button>  <!--用onclick塞javascript回到上一頁-->
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>  <!--用onclick塞javascript回到上一頁-->
         </form>
