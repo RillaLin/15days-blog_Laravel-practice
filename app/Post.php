@@ -13,4 +13,9 @@ class Post extends Model
         return $this->belongsTo('App\User');  //post屬於user
 
     }
+
+    public function category()  //一個post屬於一個category
+    {
+        return $this->belongsTo('App\Category');  //post屬於user
+    }
 }
