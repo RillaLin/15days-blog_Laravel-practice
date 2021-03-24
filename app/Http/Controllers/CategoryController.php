@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategory; //使用validation
 
 class CategoryController extends Controller
 {
@@ -36,7 +37,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
         $category = new Category;
         $category->fill($request->all()); //使用fill要先去Category modle做mass assignment(設定那些欄位可以填入)
@@ -65,7 +66,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(StoreCategory $request, Category $category)
     {
         $category->fill($request->all());
         $category->save();
