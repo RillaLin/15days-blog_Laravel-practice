@@ -30,3 +30,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+deleteCategory = function(id){
+    let result = confirm('Do you want to delete the category?');
+    if(result){
+        let actionUrl='/categories/'+id;
+        $.post(actionUrl,{_method:'delete'}).done(function(){
+            location.href='/categories';
+        });
+    }
+};

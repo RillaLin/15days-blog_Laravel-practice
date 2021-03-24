@@ -49822,6 +49822,24 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+deleteCategory = function deleteCategory(id) {
+  var result = confirm('Do you want to delete the category?');
+
+  if (result) {
+    var actionUrl = '/categories/' + id;
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/categories';
+    });
+  }
+};
 
 /***/ }),
 
