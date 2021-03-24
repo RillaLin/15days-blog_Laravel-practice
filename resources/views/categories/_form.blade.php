@@ -17,7 +17,7 @@
         @endif
 
         <form method="post" action="{{$actionUrl}}">  <!--使用category是因為真的要去資料庫建立一筆資料，action到store的路徑-->
-        @csrf <!--連到category、put、delete這些比較危險的method時要做csrf token的驗證-->
+            @csrf <!--連到category、put、delete這些比較危險的method時要做csrf token的驗證-->
             @if(!$isCreate)
                 <input type="hidden" name="_method" value="put">
             @endif

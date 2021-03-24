@@ -31,6 +31,12 @@ const app = new Vue({
     el: '#app',
 });
 
+$.ajaxSetup({
+    headers:{
+        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 deleteCategory = function(id){
     let result = confirm('Do you want to delete the category?');
     if(result){
