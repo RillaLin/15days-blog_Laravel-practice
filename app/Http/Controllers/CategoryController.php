@@ -55,7 +55,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit',['category'=>$category]);  //用舊的model變數
     }
 
     /**
@@ -67,7 +67,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->fill($request->all());
+        $category->save();
+        return redirect('/categories');
     }
 
     /**
@@ -78,6 +80,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
     }
 }
