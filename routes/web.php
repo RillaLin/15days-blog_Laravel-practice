@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/posts/create','PostController@create');  //建立文章的表單，表單送出後連到c(store)，移到前面才不會跑到show函式去執行，因為show的路徑的架構可接受create，但create不能接受show
     Route::get('/posts/show/{post}','PostController@show'); //admin的呈現文章，post傳入文章id
+    Route::get('/posts/{post}/edit','PostController@edit'); //修改的表單，表單送出後連到u(update)
     
     Route::post('/posts','PostController@store'); //c->儲存新建立的文章到資料庫
     
@@ -46,7 +47,7 @@ Route::middleware(['auth'])->group(function(){
 
 
 Route::get('/posts/{post}','PostController@show'); //post透過controller的轉換變成post model，r->顯示文章
-Route::get('/posts/{post}/edit','PostController@edit'); //修改的表單，表單送出後連到u(update)
+Route::get('/posts/category/{category}','PostController@indexWithCategory');
 Route::get('/posts','PostController@index');  //把文章首頁設為文章列表
 
 

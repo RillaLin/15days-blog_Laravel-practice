@@ -20,8 +20,16 @@ class PostController extends Controller
     public function index()   //文章首頁的列表
     {
         $posts = Post::all();   //用post model把post資料表的資料都撈出來
-        return view('posts.index',['posts'=>$posts]);  //去手動新建一個index的php檔，並把資料庫抓到的資料當作參數傳到index
+        $categories = Category::all();  //取得category的資料
+        return view('posts.index',['posts'=>$posts,'categories'=>$categories]);  //去手動新建一個index的php檔，並把資料庫抓到的資料當作參數傳到index
 
+    }
+
+    public function indexWithCategory(Category $category)
+    {
+        $posts = Post::where('category_id',$category->id)->get();  //找到特定category id的文章
+        $categories = Category::all();  //取得category的資料
+        return view('posts.index',['posts'=>$posts,'categories'=>$categories]);
     }
 
     public function create()  //到建立文章的表單
