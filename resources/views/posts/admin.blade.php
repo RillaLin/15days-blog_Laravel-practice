@@ -36,6 +36,7 @@
                         <li href="/posts/show/{{ $post->id }}" class="list-group-item"> <!--改為ul，a裡面放a會出錯-->
                             <div class="float-left">
                                 <div class="title">{{$post->title}}</div>
+                                @if(isset($post->category)) <small class="d-block text-muted">{{$post->category->name}}</small> @endif <!--category有設定的話才去印，d-block換行，text-muted字換顏色-->
                                 <small class="author">{{$post->user->name}}</small> <!--透過關聯性找到user model，並找到名字-->
                             </div>
                             
