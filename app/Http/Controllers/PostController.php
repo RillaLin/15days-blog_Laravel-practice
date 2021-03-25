@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;  //使用post model
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreBlogPost;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -26,7 +27,8 @@ class PostController extends Controller
     public function create()  //到建立文章的表單
     {
         $post = new Post;   //先建立一個新的post model，為了把create跟edit的form做合併到_form.blade.php
-        return view('posts.create',['post'=>$post]);
+        $categories = Category::all();  //取得category的資料
+        return view('posts.create',['post'=>$post,'categories'=>$categories]);
     }
 
     public function store(StoreBlogPost $request)  //request接收create表單送出的資訊
@@ -50,7 +52,8 @@ class PostController extends Controller
 
     public function edit(Post $post)  //用post承接傳過來的post id
     {
-        return view('posts/edit',['post'=>$post]);  //傳post model的變數過去
+        $categories = Category::all();  //取得category的資料
+        return view('posts/edit',['post'=>$post,'categories'=>$categories]);  //傳post model的變數過去
     }
 
     public function update(StoreBlogPost $request,Post $post)  //用post承接form action傳過來的post id，並找到那篇post，再用request接form傳過來的request，laravel潛規則必須先寫request

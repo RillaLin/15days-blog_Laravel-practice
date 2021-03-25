@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title','content'];  //設定可寫入資料的欄位
+    protected $fillable = ['title','content','category_id'];  //設定可寫入資料的欄位
 
     public function user()   //和user model做串聯，一篇文章對到一個user
     {

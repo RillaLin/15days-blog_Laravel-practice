@@ -23,11 +23,22 @@
             @endif
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Title</label>
+                <label>Title</label>
                 <input type="text" class="form-control" name="title" value="{{$post->title}}"> <!--name之後會傳到後台做判斷--><!--改成edit的-->
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Content</label>
+                <label>Category</label>
+                <select class="form-control" name="category_id">
+                    <option selected value>Please select a category</option>
+                    @foreach($categories as $key => $category)
+                        <option value="{{$category->id}}" @if($post->category_id==$category->id) selected @endif>
+                        {{$category->name}}
+                        </option>
+                    @endforeach         
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Content</label>
                 <textarea class="form-control" name="content" id="" cols="80" rows="8">{{$post->content}}</textarea>  <!--改成edit的-->
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
