@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('/posts/{post}','PostController@destroy'); //d->刪除文章
 
     Route::resource('categories','CategoryController')->except(['show']);  //crud的method除了r(show)其他都建立，但在controller裡的show還是要手動刪除
+    Route::resource('tags','TagController')->only(['index','destroy']);
 });
 
 

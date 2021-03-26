@@ -49841,6 +49841,19 @@ deleteCategory = function deleteCategory(id) {
   }
 };
 
+deleteTag = function deleteTag(id) {
+  var result = confirm('Do you want to delete the category?');
+
+  if (result) {
+    var actionUrl = '/tags/' + id;
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/tags';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

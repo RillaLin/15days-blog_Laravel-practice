@@ -46,3 +46,13 @@ deleteCategory = function(id){
         });
     }
 };
+
+deleteTag = function(id){
+    let result = confirm('Do you want to delete the category?');
+    if(result){
+        let actionUrl='/tags/'+id;
+        $.post(actionUrl,{_method:'delete'}).done(function(){
+            location.href='/tags';
+        });
+    }
+};
