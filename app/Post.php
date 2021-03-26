@@ -18,4 +18,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\Category');  //post屬於user
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
 }
