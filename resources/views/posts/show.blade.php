@@ -45,7 +45,7 @@
                                     <li><i class="fa fa-folder-open"></i>  <a href="/posts/category/{{$post->category_id}}">{{$post->category->name}}</a>
                                     </li>
                                 @endif
-                                <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
+                                <li><i class="fa fa-comments"></i>  <a href="#">{{$post->comments->count()}} comments</a>
                                 </li>
                             </ul>
 
@@ -129,140 +129,38 @@
                             <!--comments discussion section start-->
 
                             <div class="heading-title-alt text-left heading-border-bottom">
-                                <h4 class="text-uppercase">5 Comments</h4>
+                                <h4 class="text-uppercase">{{ $post->comments->count() }} Comments</h4>
                             </div>
 
                             <ul class="media-list comments-list m-bot-50 clearlist">
 
                                 <!-- Comment Item start-->
-                                <li class="media">
+                                @foreach($post->comments as $key=>$comment)
+                                    <li class="media">
 
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
-                                    </a>
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                        </a>
 
-                                    <div class="media-body">
-                                        <div class="comment-info">
-                                            <div class="comment-author">
-                                                <a href="#">John Doe</a>
-                                            </div>
-                                            July 02, 2015, at 11:34
-                                            <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
-                                        </div>
+                                        <div class="media-body">
 
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                        </p>
-
-                                        <!--  second level Comment start-->
-                                        <div class="media">
-
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
-                                            </a>
-
-                                            <div class="media-body">
-
-                                                <div class="comment-info">
-                                                    <div class="comment-author">
-                                                        <a href="#">Maragarita Rose</a>
-                                                    </div>
-                                                    July 02, 2015, at 11:34
-                                                    <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
+                                            <div class="comment-info">
+                                                <div class="comment-author">
+                                                    <a href="#">{{ $comment->user->name }}</a>
                                                 </div>
-
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                                </p>
-
-
-                                                <!-- third level Comment start -->
-                                                <div class="media">
-
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
-                                                    </a>
-
-                                                    <div class="media-body">
-
-                                                        <div class="comment-info">
-                                                            <div class="comment-author">
-                                                                <a href="#">Margarita Rose</a>
-                                                            </div>
-                                                            July 02, 2015, at 11:34
-                                                            <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
-                                                        </div>
-
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                                        </p>
-
-
-                                                    </div>
-
-                                                </div>
-                                                <!-- third level Comment end -->
-
+                                                {{$comment->created_at->format('F d,Y, G:i')}}
+                                                <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
                                             </div>
 
-                                        </div>
-                                        <!-- second level Comment end -->
+                                            <p>
+                                                {{$comment->comment}}
+                                            </p>
 
-                                    </div>
-
-                                </li>
-                                <!-- End Comment Item -->
-
-                                <!-- Comment Item start-->
-                                <li class="media">
-
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
-                                    </a>
-
-                                    <div class="media-body">
-
-                                        <div class="comment-info">
-                                            <div class="comment-author">
-                                                <a href="#">John Doe</a>
-                                            </div>
-                                            July 02, 2015, at 11:34
-                                            <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
                                         </div>
 
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                        </p>
-
-                                    </div>
-
-                                </li>
-                                <!-- End Comment Item -->
-
-                                <!-- Comment Item start-->
-                                <li class="media">
-
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
-                                    </a>
-
-                                    <div class="media-body">
-
-                                        <div class="comment-info">
-                                            <div class="comment-author">
-                                                <a href="#">John Doe</a>
-                                            </div>
-                                            July 02, 2015, at 11:34
-                                            <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
-                                        </div>
-
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                        </p>
-
-                                    </div>
-
-                                </li>
+                                    </li>
+                                @endforeach
+                                
                                 <!-- End Comment Item -->
 
                             </ul>
