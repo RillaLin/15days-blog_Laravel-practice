@@ -57,10 +57,22 @@ class PostController extends Controller
         $post->user_id=Auth::id(); //取得登入的使用者id
         $post->save();         //存到資料庫
 
-        $tags=explode(',',$request->tags);  //將得到的tags資料用逗號做拆解，並丟到tags array中
+        $tags=$this->stringToTags($request->tags);
         $this->addTagsToPost($tags,$post);  //呼叫函式
 
         return redirect('/posts/admin');     //用get的路徑回到index首頁
+    }
+
+    private function stringToTags($string)
+    {
+        $tags=explode(',',$string);  //將得到的tags資料用逗號做拆解，並丟到tags array中
+        $tags=array_filter($tags);   //array_filter可以把'foo'、false、-1、null、空字串刪掉
+
+        foreach($tags as $key=> $tag){
+            $tags[$key] = trim($tag);   //把tag的左右空白拿掉，再放回去陣列內
+        }
+
+        return $tags;
     }
 
     private function addTagsToPost($tags,$post)
@@ -104,7 +116,7 @@ class PostController extends Controller
         //}   可直接用下面這一行拿掉所有的關聯性
         $post->tags()->detach();
 
-        $tags=explode(',',$request->tags);  //將得到的tags資料用逗號做拆解，並丟到tags array中
+        $tags=$this->stringToTags($request->tags);
         $this->addTagsToPost($tags,$post);  //呼叫函式
 
         return redirect('/posts/admin');     //用get的路徑回到index首頁
