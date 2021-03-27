@@ -63,17 +63,14 @@
 
 
                             <div class="inline-block">
-
+                            @if($post->tags->count()>0)  <!--如果有tag資料在印出tag-->
                                 <div class="widget-tags">
                                     <h6 class="text-uppercase">Tags </h6>
-                                    <a href="">Portfolio</a>
-                                    <a href="">Design</a>
-                                    <a href="">Link</a>
-                                    <a href="">Gallery</a>
-                                    <a href="">Video</a>
-                                    <a href="">Clean</a>
-                                    <a href="">Retina</a>
+                                    @foreach($post->tags as $key => $tag)
+                                        <a href="#">{{$tag->name}}</a>
+                                    @endforeach
                                 </div>
+                            @endif
                             </div>
 
 
