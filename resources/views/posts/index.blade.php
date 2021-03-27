@@ -7,9 +7,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="text-uppercase">
-                    @if(request()->category)
-                        BLOG LISTING/{{ request()->category->name}}
-                    @endif
+                        BLOG LISTING
+                        @if(request()->category)
+                            /{{ request()->category->name}}
+                        @endif
+                        @if(request()->tag)
+                            #{{ request()->tag->name}}
+                        @endif
                     </h4>
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a>

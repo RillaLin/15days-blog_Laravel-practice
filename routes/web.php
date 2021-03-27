@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function(){
 
 Route::get('/posts/{post}','PostController@show'); //post透過controller的轉換變成post model，r->顯示文章
 Route::get('/posts/category/{category}','PostController@indexWithCategory');
+Route::get('/posts/tag/{tag}','PostController@indexWithTag');
 Route::get('/posts','PostController@index');  //把文章首頁設為文章列表
 
 

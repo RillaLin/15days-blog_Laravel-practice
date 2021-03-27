@@ -1,3 +1,13 @@
+<!--把controller的php內嵌到這裡，controller裡就不用一直重複寫-->
+<!--tag有文章的才拿出來，讓沒有文章的tag不要顯示在index上;使用withCount會得到一個posts_count的值-->
+<!--use本來就會從根目錄開始找，所以前面不用加反斜線-->
+@php
+    use App\Category;  
+
+    $categories = Category::all();  
+    $tags = \App\Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();  
+@endphp
+
 <!--latest post widget-->
 <div class="widget">
                             <div class="heading-title-alt text-left heading-border-bottom">
@@ -80,13 +90,10 @@
                                 <h6 class="text-uppercase">tag cloud</h6>
                             </div>
                             <div class="widget-tags">
-                                <a href="">Portfolio</a>
-                                <a href="">Design</a>
-                                <a href="">Link</a>
-                                <a href="">Gallery</a>
-                                <a href="">Video</a>
-                                <a href="">Clean</a>
-                                <a href="">Retina</a>
+                                @foreach($tags as $key=> $tag)
+                                    <a href="/posts/tag/{{$tag->id}}">{{$tag->name}}</a>
+                                @endforeach
+                                
                             </div>
                         </div>
                         <!--tags widget-->
