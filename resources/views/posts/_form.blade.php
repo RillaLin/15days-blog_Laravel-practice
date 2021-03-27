@@ -38,6 +38,10 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>Tags</label>
+                <input type="text" class="form-control" name="tags" value=""> <!--name之後會傳到後台做判斷--><!--改成edit的-->
+            </div>
+            <div class="form-group">
                 <label>Content</label>
                 <textarea class="form-control" name="content" id="" cols="80" rows="8">{{$post->content}}</textarea>  <!--改成edit的-->
             </div>
