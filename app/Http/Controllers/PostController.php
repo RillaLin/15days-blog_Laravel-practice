@@ -110,8 +110,15 @@ class PostController extends Controller
     public function update(StoreBlogPost $request,Post $post)  //用post承接form action傳過來的post id，並找到那篇post，再用request接form傳過來的request，laravel潛規則必須先寫request
     {
         //用StoreBlogPost接request做驗證
-
         $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
+
+        if(!is_null($request->file('thumbnail'))){  //如果有傳照片
+            //上傳檔案得到路徑，並將路徑傳到資料庫
+            $path=$request->file('thumbnail')->store('public');
+            $path=str_replace('public/','/storage/',$path);
+            $post->thumbnail=$path;    //儲存圖片路徑
+        }
+        
         $post->save();         //更新資料庫
 
         //remove old tags relationship

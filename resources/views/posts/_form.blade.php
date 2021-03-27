@@ -28,7 +28,10 @@
                 <input type="text" class="form-control" name="title" value="{{$post->title}}"> <!--name之後會傳到後台做判斷--><!--改成edit的-->
             </div>
             <div class="form-group">
-                <label>Thumbnail</label>
+                <label class="d-block">Thumbnail</label>
+                    @if($post->thumbnail)    <!--如果已有圖片，顯示出來-->
+                        <img width="320" src="{{$post->thumbnail}}" alt="thumbnail">
+                    @endif
                 <div class="custom-file"> <!--上傳圖片-->
                     <input type="file" class="custom-file-input" id="customFile" name="thumbnail">
                     <label class="custom-file-label" for="customFile">Choose file</label>
