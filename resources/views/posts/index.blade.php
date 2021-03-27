@@ -46,7 +46,12 @@
                                 </div>
                                 <div class="blog-post">
                                     <div class="full-width">
-                                        <img src="/assets/img/post/p12.jpg" alt="" />
+                                        @if(!$post->thumbnail)
+                                            <img src="/assets/img/post/p12.jpg" alt="" />    <!--預設圖片-->
+                                        @else
+                                            <img width="320" src="{{$post->thumbnail}}" alt="thumbnail">
+                                        @endif
+                                        
                                     </div>
                                     <h4 class="text-uppercase"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4> <!--用從controller獲得的model變數讀取資料-->
                                     <ul class="post-meta">

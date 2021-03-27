@@ -31,7 +31,11 @@
                     <div class="blog-classic">
                         <div class="blog-post">
                             <div class="full-width">
-                                <img src="/assets/img/post/p12.jpg" alt="" />
+                                @if(!$post->thumbnail)
+                                    <img src="/assets/img/post/p12.jpg" alt="" />    <!--預設圖片-->
+                                @else
+                                    <img width="320" src="{{$post->thumbnail}}" alt="thumbnail">
+                                @endif
                             </div>
                             <h4 class="text-uppercase"><a href="blog-single.html">{{$post->title}}</a></h4>
                             <ul class="post-meta">
