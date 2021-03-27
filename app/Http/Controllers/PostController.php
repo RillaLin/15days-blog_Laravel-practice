@@ -67,13 +67,14 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        if(Auth::check())   //如果是登入狀態
-            return view('posts.showByAdmin',['post'=>$post]);  //傳入post model 變數
-        else{
-            $categories = Category::all();  //取得category的資料
-            return view('posts.show',['post'=>$post,'categories'=>$categories]);
-        }
-            
+        //if(Auth::check())   //如果是登入狀態
+        $categories = Category::all();  //取得category的資料
+        return view('posts.show',['post'=>$post,'categories'=>$categories]);
+    }
+
+    public function showByAdmin(Post $post)
+    {
+        return view('posts.showByAdmin',['post'=>$post]);  //傳入post model 變數
     }
 
     public function edit(Post $post)  //用post承接傳過來的post id
