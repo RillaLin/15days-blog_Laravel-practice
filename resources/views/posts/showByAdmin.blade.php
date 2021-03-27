@@ -27,6 +27,7 @@
         <div class="container">
             <h1>{{ $post -> title }}</h1>
             @if(isset($post->category)) <small class="d-block text-muted">{{$post->category->name}}</small> @endif <!--category有設定的話才去印，d-block換行，text-muted字換顏色-->
+            <small class="d-block text-muted">{{$post->tagsString()}}</small>
             <small class="author">{{$post->user->name}}</small> <!--透過關聯性找到user model，並找到名字-->
             <div class="toolbox text-left mt-3">
                 <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
