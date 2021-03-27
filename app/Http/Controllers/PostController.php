@@ -50,15 +50,19 @@ class PostController extends Controller
         $post->save();         //存到資料庫
 
         $tags=explode(',',$request->tags);  //將得到的tags資料用逗號做拆解，並丟到tags array中
+        $this->addTagsToPost($tags,$post);  //呼叫函式
+
+        return redirect('/posts/admin');     //用get的路徑回到index首頁
+    }
+
+    private function addTagsToPost($tags,$post)
+    {
         foreach($tags as $key => $tag){
             //craete / load tag
             $model = Tag::firstOrCreate(['name'=>$tag]);  //如果tag資料庫中已有了就用first讀出來，沒有就create一個，並且回傳一個model給我們，是massassignment的作法，要記得去tag model做fillable的設定
             //connect post & tag
             $post->tags()->attach($model->id); //先找到關聯性再將id做attach，和post的id做關聯性
         }
-
-        return redirect('/posts/admin');     //用get的路徑回到index首頁
-
     }
 
     public function show(Post $post)
@@ -84,6 +88,16 @@ class PostController extends Controller
 
         $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
         $post->save();         //更新資料庫
+
+        //remove old tags relationship
+        //foreach($tags as $key => $tag){
+            //$post->tags()->detach($tag->id); //先把原本的關聯性拿掉
+        //}   可直接用下面這一行拿掉所有的關聯性
+        $post->tags()->detach();
+
+        $tags=explode(',',$request->tags);  //將得到的tags資料用逗號做拆解，並丟到tags array中
+        $this->addTagsToPost($tags,$post);  //呼叫函式
+
         return redirect('/posts/admin');     //用get的路徑回到index首頁
     }
 

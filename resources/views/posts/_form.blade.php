@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label>Tags</label>
-                <input type="text" class="form-control" name="tags" value=""> <!--name之後會傳到後台做判斷--><!--改成edit的-->
+                <input type="text" class="form-control" name="tags" value="{{$post->tagsString()}}"> <!--name之後會傳到後台做判斷--> <!--改成edit的--> <!--呼叫Tag model裡的tagsString函數判斷是否已有tag，並將tag串聯回字串-->
             </div>
             <div class="form-group">
                 <label>Content</label>

@@ -23,4 +23,16 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    public function tagsString()
+    {
+        $tagsName=[];
+        foreach($this->tags as $key=> $tag){
+            $tagsName[]=$tag->name;   //將資料庫已有的tag放到array裡
+        }
+        $tagsString=implode(',',$tagsName);  //將這些tag用逗號串連回字串，update時在表單顯示
+
+        return $tagsString;  //傳到呼叫這個function的地方(posts\_form)
+
+    }
 }
