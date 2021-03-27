@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('tags','TagController')->only(['index','destroy']);
 });
 
+Route::resource('comments','CommentController')->only(['store','update','destroy']);
 
 
 Route::get('/posts/{post}','PostController@show'); //post透過controller的轉換變成post model，r->顯示文章

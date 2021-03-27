@@ -275,8 +275,9 @@
                                 <h4 class="text-uppercase">Leave a Comments</h4>
                             </div>
 
-                            <form method="post" action="#" id="form" role="form" class="blog-comments">
-
+                            <form method="post" action="/comments" id="form" role="form" class="blog-comments">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{$post->id}}">  <!--偷傳post_id過去，user_id不用，因為可以直接取得-->
                                 <div class="row">
 
                                     <div class="col-md-6 form-group">
@@ -284,20 +285,9 @@
                                         <input type="text" name="name" id="name" class=" form-control" placeholder="Name *" maxlength="100" required="">
                                     </div>
 
-                                    <div class="col-md-6 form-group">
-                                        <!-- Email -->
-                                        <input type="email" name="email" id="email" class=" form-control" placeholder="Email *" maxlength="100" required="">
-                                    </div>
-
-
-                                    <div class="form-group col-md-12">
-                                        <!-- Website -->
-                                        <input type="text" name="website" id="website" class=" form-control" placeholder="Website" maxlength="100">
-                                    </div>
-
                                     <!-- Comment -->
                                     <div class="form-group col-md-12">
-                                        <textarea name="text" id="text" class=" form-control" rows="6" placeholder="Comment" maxlength="400"></textarea>
+                                        <textarea name="comment" id="text" class=" form-control" rows="6" placeholder="Comment" maxlength="400"></textarea>
                                     </div>
 
                                     <!-- Send Button -->
