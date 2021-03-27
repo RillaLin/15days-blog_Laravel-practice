@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');   //一個user擁有多篇posts
     }
+
+    public function comments()  //一個user有多個comment
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

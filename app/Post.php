@@ -35,4 +35,9 @@ class Post extends Model
         return $tagsString;  //傳到呼叫這個function的地方(posts\_form)
 
     }
+
+    public function comments()  //一個post有多個comment
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
