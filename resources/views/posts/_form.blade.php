@@ -16,7 +16,8 @@
         </div>
         @endif
 
-        <form method="post" action="{{$actionUrl}}">  <!--使用post是因為真的要去資料庫建立一筆資料，action到store的路徑-->
+        <form method="post" action="{{$actionUrl}}" enctype="multipart/form-data">  <!--使用post是因為真的要去資料庫建立一筆資料，action到store的路徑-->
+        <!--上傳檔案都需要加上enctype="multipart/form-data"-->
         @csrf <!--連到post、put、delete這些比較危險的method時要做csrf token的驗證-->
             @if(!$isCreate)
                 <input type="hidden" name="_method" value="put">
@@ -26,6 +27,14 @@
                 <label>Title</label>
                 <input type="text" class="form-control" name="title" value="{{$post->title}}"> <!--name之後會傳到後台做判斷--><!--改成edit的-->
             </div>
+            <div class="form-group">
+                <label>Thumbnail</label>
+                <div class="custom-file"> <!--上傳圖片-->
+                    <input type="file" class="custom-file-input" id="customFile" name="thumbnail">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+            </div>
+            
             <div class="form-group">
                 <label>Category</label>
                 <select class="form-control" name="category_id">

@@ -50,11 +50,15 @@ class PostController extends Controller
 
     public function store(StoreBlogPost $request)  //request接收create表單送出的資訊
     {
+        //上傳檔案得到路徑，並將路徑傳到資料庫
+        $path=$request->file('thumbnail')->store('public');
+        $path=str_replace('public/','/storage/',$path);
+        
         //用StoreBlogPost接request做驗證
-
         $post = new Post;   //建立一個新的post model，因為還沒有post
         $post->fill($request->all()); //用fill把request的資料都放進去，但fill不接受request，只接受array，用all()可以把request轉乘array
         $post->user_id=Auth::id(); //取得登入的使用者id
+        $post->thumbnail=$path;    //儲存圖片路徑
         $post->save();         //存到資料庫
 
         $tags=$this->stringToTags($request->tags);
