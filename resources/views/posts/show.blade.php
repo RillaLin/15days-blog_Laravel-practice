@@ -274,6 +274,17 @@
                             <div class="heading-title-alt text-left heading-border-bottom">
                                 <h4 class="text-uppercase">Leave a Comments</h4>
                             </div>
+                            
+                            <!--若表單驗證出現問題，傳回錯誤訊息的位置-->
+                            @if($errors->any())    <!--用any確認是否有錯誤訊息-->
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $key=>$error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
 
                             <form method="post" action="/comments" id="form" role="form" class="blog-comments">
                                 @csrf
@@ -282,7 +293,11 @@
 
                                     <div class="col-md-6 form-group">
                                         <!-- Name -->
-                                        <input type="text" name="name" id="name" class=" form-control" placeholder="Name *" maxlength="100" required="">
+                                        @if(Auth::check())  <!--如果有登入，自動幫我們輸入名字-->
+                                            <input type="text" name="name" id="name" class=" form-control" placeholder="Name *" maxlength="100" value="{{Auth::user()->name}}">
+                                        @else
+                                            <input type="text" name="name" id="name" class=" form-control" placeholder="Name *" maxlength="100">
+                                        @endif
                                     </div>
 
                                     <!-- Comment -->
