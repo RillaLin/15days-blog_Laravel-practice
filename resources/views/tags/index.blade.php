@@ -35,7 +35,7 @@
                     @foreach($tags as $key=> $tag) <!--把每一個post拿出來印-->
                         <li class="list-group-item clearfix"> <!--改為ul，a裡面放a會出錯-->
                             <div class="float-left">
-                                <div class="title">{{$category->name}}</div>
+                                <div class="title">{{$tag->name}}</div>
                             </div>
                             
                             <div class="float-right">  <!--浮右-->
