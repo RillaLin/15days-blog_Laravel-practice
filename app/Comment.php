@@ -10,6 +10,7 @@ class Comment extends Model
 
     public function post()  //一個comment只會對到一篇post
     {
+    
         return $this->belongsTo('App\Post');
     }
 

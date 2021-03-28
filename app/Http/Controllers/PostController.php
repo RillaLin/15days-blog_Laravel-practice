@@ -91,9 +91,11 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $prevPostId = Post::where('id','<',$post->id)->max('id');
+        $nextPostId = Post::where('id','>',$post->id)->min('id');
+        
         //if(Auth::check())   //如果是登入狀態
-        $categories = Category::all();  //取得category的資料
-        return view('posts.show',['post'=>$post,'categories'=>$categories]);
+        return view('posts.show',['post'=>$post,'prevPostId'=>$prevPostId,'nextPostId'=>$nextPostId]);
     }
 
     public function showByAdmin(Post $post)
