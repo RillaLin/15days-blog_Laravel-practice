@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function index()   //文章首頁的列表
     {
-        $posts = Post::all();   //用post model把post資料表的資料都撈出來
+        $posts = Post::paginate(5);   //用post model把post資料表的資料都撈出來;paginate一頁顯示五個post
         //$categories = Category::all();  //取得category的資料
         //$tags = Tag::all();
         return view('posts.index',['posts'=>$posts]);  //去手動新建一個index的php檔，並把資料庫抓到的資料當作參數傳到index
