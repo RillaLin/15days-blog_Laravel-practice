@@ -3,7 +3,11 @@
 <!--use本來就會從根目錄開始找，所以前面不用加反斜線-->
 @php
     use App\Category;  
+    use App\Post; 
+    use App\Comment; 
 
+    $latestPosts = Post::orderBy('created_at','desc')->take(3)->get();
+    $latestComments = Comment::orderBy('created_at','desc')->take(4)->get();  
     $categories = Category::all();  
     $tags = \App\Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();  
 @endphp
@@ -14,39 +18,23 @@
                                 <h6 class="text-uppercase">latest post</h6>
                             </div>
                             <ul class="widget-latest-post">
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/assets/img/post/post-thumb.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="w-desk">
-                                        <a href="#">Old Father Getup</a>
-                                        April 25, 2014
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/assets/img/post/post-thumb-2.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="w-desk">
-                                        <a href="#">Represent is the best way</a>
-                                        March 28, 2014
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/assets/img/post/post-thumb-3.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="w-desk">
-                                        <a href="#">Alone with the music</a>
-                                        May 05, 2014
-                                    </div>
-                                </li>
+                                @foreach($latestPosts as $key=> $post)
+                                    <li>
+                                        <div class="thumb">
+                                            <a href="/posts/{{$post->id}}">
+                                                @if($post->thumbnail)
+                                                    <img src="{{$post->thumbnail}}" alt="thumbnail" >
+                                                @else
+                                                    <img src="/assets/img/post/post-thumb.jpg" alt="" />
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="w-desk">
+                                            <a href="#">{{$post->title}}</a>
+                                            {{ $post->created_at->format('F d,Y') }}
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <!--latest post widget-->
@@ -72,14 +60,11 @@
                                 <h6 class="text-uppercase">Latest comments </h6>
                             </div>
                             <ul class="widget-comments">
-                                <li>Jonathan on <a href="javascript:;">Vesti blulum quis dolor </a>
-                                </li>
-                                <li>Jane Doe on <a href="javascript:;">Nam sed arcu tellus</a>
-                                </li>
-                                <li>Margarita on <a href="javascript:;">Fringilla ut vel ipsum </a>
-                                </li>
-                                <li>Smith on <a href="javascript:;">Vesti blulum quis dolor sit</a>
-                                </li>
+                                @foreach($latestComments as $key => $comment)
+                                    <li>{{$comment->name}} <a href="/posts/{{$comment->post->id}}"> {{$comment->post->title}} </a>
+                                    </li>
+                                @endforeach
+                                
                             </ul>
                         </div>
                         <!--comments widget-->
