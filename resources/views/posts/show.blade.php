@@ -78,23 +78,11 @@
                             </div>
 
 
-                            <div class="clearfix inline-block m-top-50 m-bot-50">
-                                <h6 class="text-uppercase">Share this Post </h6>
-                                <div class="widget-social-link circle">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-behance"></i></a>
-                                </div>
-                            </div>
-
-
                             <div class="pagination-row">
 
                                 <div class="pagination-post">
                                     <div class="prev-post">
-                                        <a href="#">
+                                        <a href="@if($prevPostId) /posts/{{$prevPostId}} @else # @endif">
                                             <div class="arrow">
                                                 <i class="fa fa-angle-double-left"></i>
                                             </div>
@@ -105,13 +93,13 @@
                                     </div>
 
                                     <div class="post-list-link">
-                                        <a href="#">
+                                        <a href="/posts">
                                             <i class="fa fa-home"></i>
                                         </a>
                                     </div>
 
                                     <div class="next-post">
-                                        <a href="#">
+                                        <a href="@if($nextPostId) /posts/{{$nextPostId}} @else # @endif">
                                             <div class="arrow">
                                                 <i class="fa fa-angle-double-right"></i>
                                             </div>
@@ -147,15 +135,24 @@
                                             <div class="comment-info">
                                                 <div class="comment-author">
                                                     <a href="#">{{ $comment->user->name }}</a>
+                                                    <button class="btn btn-default" onclick="toggleCommentForm(event)">edit</button>
+                                                    <button class="btn btn-default" onclick="deleteComment(event)" data-action="/comments/{{$comment->id}}">delete</button>
                                                 </div>
                                                 {{$comment->created_at->format('F d,Y, G:i')}}
                                                 <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
                                             </div>
 
-                                            <p>
-                                                {{$comment->comment}}
-                                            </p>
+                                            <div class="comment-body">
+                                                <p>
+                                                    {{$comment->comment}}
+                                                </p>
 
+                                                <form class="update-comment" action="/comments/{{$comment->id}}" method="post">
+                                                    <input type="text" name="comment" value="{{$comment->comment}}">
+                                                    <button>update</button>
+                                                </form>
+                                            </div>
+                                            
                                         </div>
 
                                     </li>

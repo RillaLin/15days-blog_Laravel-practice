@@ -1,0 +1,12 @@
+.comment-body form {
+  display: none;
+}
+
+.comment-body.edit form {
+  display: block;
+}
+
+.comment-body.edit p {
+  display: none;
+}
+

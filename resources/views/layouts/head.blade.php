@@ -2,6 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
+    
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -26,7 +27,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/default-theme.css">
     <!--上面先放模板原本的css，讓網頁先做原本的css-->
-    <link rel="stylesheet" href="/frontend/app.css">   <!--自己加上css-->
+    <link rel="stylesheet" href="/css/frontend.css">   <!--自己加上css-->
     <!-- endinject -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

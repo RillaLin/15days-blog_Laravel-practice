@@ -2,3 +2,18 @@
 // Variables
 @import 'variables';
 
+.comment-body{
+    form{
+        display: none;  //預設隱藏
+    }
+
+    &.edit{
+        form{
+            display: block;  //在edit模式顯示
+        }   
+        p{
+            display: none;
+        } 
+
+    }
+}
